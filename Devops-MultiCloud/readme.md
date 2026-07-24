@@ -1,8 +1,7 @@
-# 📘 Módulo 1 — Fundamentos de DevOps & DevSecOps
+# 📘 Fundamentos de DevOps & DevSecOps
 
 > [!NOTE]
 > **Fecha:** 2026-07-23
-> **Módulo:** 1 — Fundamentos de DevOps & DevSecOps
 > **Tags:** `#devops` `#devsecops` `#ci-cd` `#sre` `#multicloud`
 
 ---
@@ -20,8 +19,8 @@ DevOps es una **cultura + conjunto de prácticas + herramientas** que unifica el
 ---
 
 ## 📐 2. Arquitectura & Flujo — Ciclo de Vida DevOps
-
 El ciclo DevOps se representa como un **bucle infinito (∞)** de 8 fases divididas en dos dominios: *Dev* (izquierda) y *Ops* (derecha), retroalimentándose de forma continua.
+![Arquitectura Devops Azure](resources/azureDevops.png)
 
 ```mermaid
 graph LR
