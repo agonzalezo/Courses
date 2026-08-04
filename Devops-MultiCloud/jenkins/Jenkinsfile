@@ -17,14 +17,28 @@ pipeline {
             }
         }
 
+        stage('Approval') {
+            steps {
+                timeout(time: 30, unit: 'MINUTES') {
+                    input message: 'Do you want to proceed?', ok: 'Yes'
+                }
+            }
+        }
+
+        stage('Debug Branch') {
+            steps {
+                echo "GIT_BRANCH=${env.GIT_BRANCH}"
+                echo "BRANCH_NAME=${env.BRANCH_NAME}"
+                sh 'git branch --show-current || true'
+                sh 'git rev-parse --abbrev-ref HEAD || true'
+            }
+        }
+
         stage('Deploy PDN') {
             when {
                 expression { env.GIT_BRANCH == 'origin/main' || env.BRANCH_NAME == 'main' }
             }
             steps {
-                timeout(time: 30, unit: 'MINUTES') {
-                    input message: 'Deploy to Production?', ok: 'Approve'
-                }
                 echo 'Deploying PDN...'
                 sh 'echo "Deploying PDN..."'
             }
