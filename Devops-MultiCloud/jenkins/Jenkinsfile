@@ -1,6 +1,10 @@
 pipeline {
     agent any
 
+    triggers {
+        githubPush()
+    }
+
     environment {
         VAR_NAME = 'Tecylab DevOps'
     }
@@ -28,6 +32,9 @@ pipeline {
         }
         failure {
             echo 'Pipeline failed.'
+        }
+        always {
+            echo 'Pipeline finished.'
         }
     }
 }
