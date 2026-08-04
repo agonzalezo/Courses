@@ -19,7 +19,7 @@ pipeline {
 
         stage('Deploy PDN') {
             when {
-                branch 'main'
+                branch 'refs/remotes/origin/main'
             }
             steps {
                 echo 'Deploying PDN...'
