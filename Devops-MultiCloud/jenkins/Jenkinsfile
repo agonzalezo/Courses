@@ -36,7 +36,7 @@ pipeline {
 
         stage('Deploy PDN') {
             when {
-                expression { env.GIT_BRANCH ==~ /.*main/ }
+                expression { return env.GIT_BRANCH == 'origin/main' }
             }
             steps {
                 echo 'Deploying PDN...'
@@ -46,7 +46,7 @@ pipeline {
 
         stage('Deploy DEV') {
             when {
-                expression { env.GIT_BRANCH !=~ /.*main/ }
+                expression { return env.GIT_BRANCH != 'origin/main' }
             }
             steps {
                 echo 'Deploying DEV...'
