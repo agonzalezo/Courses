@@ -1,0 +1,28 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Hello') {
+            steps {
+                echo 'Hello World from Jenkins Pipeline!'
+            }
+        }
+
+        stage('Environment') {
+            steps {
+                sh 'whoami'
+                sh 'hostname'
+                sh 'date'
+            }
+        }
+    }
+
+    post {
+        success {
+            echo 'Pipeline completed successfully.'
+        }
+        failure {
+            echo 'Pipeline failed.'
+        }
+    }
+}
