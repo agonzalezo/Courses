@@ -17,6 +17,16 @@ pipeline {
             }
         }
 
+        stage('Deploy PDN') {
+            when {
+                branch 'main'
+            }
+            steps {
+                echo 'Deploying PDN...'
+                sh 'echo "Deploying PDN..."'
+            }
+        }
+
         stage('Environment') {
             steps {
                 sh 'whoami'
