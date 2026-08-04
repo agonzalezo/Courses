@@ -17,6 +17,7 @@ pipeline {
                 sh 'whoami'
                 sh 'hostname'
                 sh 'date'
+                sh 'uptime'
             }
         }
     }
